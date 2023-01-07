@@ -1,11 +1,27 @@
-function getHtmlUl(array){
-    let string = '<ul class="list_class">';
-    let subStr= '<li class="item_class"><div ';
+// function getHtmlUl(array) {
+   
+//     return `<ul class="list_class">${getListItems(array)}</ul>`;
+// }
+function getListItems(array) {
+    const res = [];
+    // for(let i = 0; i < array.length; i++) {
+    //     res[i] = `
+    //             <li class="item_class">
+    //                 <div class="${array[i] === 0 ? "white" : "black"}">
+    //                  </div>
+    //              </li>`
+    // }
+   
     for (let index = 0; index < array.length; index++) {
-        const strClass = array[index] === 0 ? 'class = "white"' : 'class = "black"';
-        string = string +  subStr + strClass +"></div></li>";
+        res[index] = `<li class="item_class"><div class="${array[index] === 0 ? "white" : "black"}"</div></li>`
     }
-    return  string + "</ul>";
+    return res.join('');
+}
+
+
+function getHtmlUl(array){
+    // return `<ul class="list_class">${getListItems(array)}</ul>`;
+    return `<ul class="list_class">${getListItems(array)}</ul>`;
 }
 function transpMatrix(matrix){
     const newMatrix = [];
